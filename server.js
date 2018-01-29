@@ -1,3 +1,5 @@
+const path = require('path');
+const publicPath = path.join(__dirname, './client/build');
 const express = require('express');
 const app = express();
 var mongoose = require('mongoose');
