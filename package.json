@@ -2,7 +2,6 @@
   "name": "example-create-react-app-express",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd client build",
     "client": "cd client && npm run start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
