@@ -1,5 +1,5 @@
 const path = require('path');
-const publicPath = path.join(__dirname, './client/public'); //maybe this?
+const publicPath = path.join(__dirname, './client'); //maybe this?
 const express = require('express');
 const app = express();
 var mongoose = require('mongoose');
