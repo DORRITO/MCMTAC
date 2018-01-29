@@ -1,5 +1,5 @@
 const path = require('path');
-// const publicPath = path.join(__dirname, './client/build'); //maybe this?
+const publicPath = path.join(__dirname, './client/build'); //maybe this?
 const express = require('express');
 const app = express();
 var mongoose = require('mongoose');
@@ -11,13 +11,11 @@ const _ = require('lodash');
 // app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 const port = process.env.PORT || 8000;
-// app.use(express.static(publicPath));
-app.use('/', express.static(`${__dirname}/client/build`)); //or this?
+app.use(express.static(publicPath));
+// app.use('/', express.static(`${__dirname}/client/build`)); //or this?
 
 let {PlayersAPI} = require('./server/models/players');
-app.get('/', (req, res) => {
-  res.send({ express: 'this is actually working'});
-});
+
 app.get('/home', (req, res) => {
   res.send({ express: 'this is the home page from the back end'});
 });
