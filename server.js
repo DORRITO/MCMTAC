@@ -12,7 +12,7 @@ const _ = require('lodash');
 // app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 const port = process.env.PORT || 8000;
-
+// console.log(PlayersAPI ? console.log('yup'): console.log('nope'));
 let {PlayersAPI} = require('./server/models/players');
 
 app.get('/home', (req, res) => {
