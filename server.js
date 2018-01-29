@@ -2,7 +2,6 @@ const path = require('path');
 // const publicPath = path.join(__dirname, './client/build');
 const express = require('express');
 const app = express();
-app.use('/', express.static(`${__dirname}/client/build`));
 var mongoose = require('mongoose');
 
 var {mongoose} = require('./server/db/mongoose');
@@ -12,7 +11,7 @@ const _ = require('lodash');
 // app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 const port = process.env.PORT || 8000;
-// console.log(PlayersAPI ? console.log('yup'): console.log('nope'));
+app.use('/', express.static(`${__dirname}/public`));
 let {PlayersAPI} = require('./server/models/players');
 
 app.get('/home', (req, res) => {
