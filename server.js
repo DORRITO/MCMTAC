@@ -15,7 +15,9 @@ const port = process.env.PORT || 8000;
 app.use('/', express.static(`${__dirname}/client/build`)); //or this?
 
 let {PlayersAPI} = require('./server/models/players');
-
+app.get('/', (req, res) => {
+  res.send({ express: 'this is actually working'});
+});
 app.get('/home', (req, res) => {
   res.send({ express: 'this is the home page from the back end'});
 });
