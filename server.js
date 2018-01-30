@@ -12,7 +12,7 @@ const _ = require('lodash');
 app.use(bodyParser.json());
 const port = process.env.PORT || 8000;
 // app.use(express.static(publicPath));
-// app.use('/', express.static(`${__dirname}/client/build`)); //or this?
+app.use('/', express.static(`${__dirname}/client/build`)); //or this?
 
 let {PlayersAPI} = require('./server/models/players');
 
