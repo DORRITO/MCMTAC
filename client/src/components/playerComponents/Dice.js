@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Route, Redirect } from 'react-router-dom';
 import openSocket from 'socket.io-client';
-const  socket = openSocket('http://localhost:8000');
+const  socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
 
 export class Dice extends React.Component{
   
