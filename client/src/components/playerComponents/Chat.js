@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import openSocket from 'socket.io-client';
 const  socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
 
-export class Chat extends React.Component{
+export default class Chat extends React.Component{
   
   constructor(props){
     super(props);
@@ -34,6 +35,12 @@ export class Chat extends React.Component{
     });
   }///////////////////////////////////////////////////////////////////
 
+  ////////////////////////
+  clear(e) {
+    e.preventDefault();
+    this.setState({chatList: []})
+  }///////////////////////////
+
   ///////////////////////////roll///////////////////////////////////////
    send(e) {
     e.preventDefault();
@@ -41,6 +48,7 @@ export class Chat extends React.Component{
         from: this.props.owner,
         text: this.state.text
     }, function(){});
+    this.setState({text: ''});
   }///////////////////////////////////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////////////////////
@@ -48,8 +56,9 @@ export class Chat extends React.Component{
       return (
         <div>
           <form onSubmit={this.send.bind(this)}>
-            <input type="text" onChange={this.onTextChange.bind(this)} placeholder="message"/>
+            <input type="text" onChange={this.onTextChange.bind(this)} value={this.state.text} placeholder="message"/>
             <button>Send chat</button>
+            <button onClick={this.clear.bind(this)}>Clear Chat</button>
           </form>
           <ul>{this.renderChatList()}</ul>
         </div>

@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Route, Redirect } from 'react-router-dom';
 import openSocket from 'socket.io-client';
-const  socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
+import {connect} from 'react-redux';
 
-export class Dice extends React.Component{
+const socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
+
+class Dice extends React.Component{
   
   constructor(props){
     super(props);
@@ -23,12 +25,13 @@ export class Dice extends React.Component{
   // }
   //////////////////////user users name////////////////////////////////////
   componentDidMount(){
+    console.log(this.props, 'awuhhwuhh')
     this.callGetAPI()
       .then(res => this.setState({ name: res[this.state.owner].name }) )
       .catch(err => console.log(err))
 
-      socket.on('dice', (data) => {if(data.name === this.state.owner){this.setState({d20: data.dice})} });
-      socket.on('modifier2', (data) => {if(data.name === this.state.owner){this.setState({modifier: data.modifier})} });
+    socket.on('dice', (data) => {if(data.name === this.state.owner){this.setState({d20: data.dice})} });
+    socket.on('modifier2', (data) => {if(data.name === this.state.owner){this.setState({modifier: data.modifier})} });
   }//////////////////////////////////////////////////////////////////////////
 
   ///////////////////grab data/////////////////////////////////
@@ -72,19 +75,28 @@ export class Dice extends React.Component{
       // .catch(err => console.log(err))
   }///////////////////////////////////////////////////////////////////////
 
-//  {this.state.isGM ? <input type="number" placeholder={0} onChange={this.onModifierChange.bind(this)} value={this.state.modifier}/> : 'change this later to gm, not me'}
-
   //////////////////////////////////////////////////////////////////////////////
   render(){
       return (
         <div>
-          <button onClick={this.roll.bind(this)}>Roll +{this.state.modifier}</button>
+          {this.props.user === this.props.owner || this.props.user === 'Gm' ? <button onClick={this.roll.bind(this)}>Roll +{this.state.modifier}</button> : <button>Roll +{this.state.modifier}</button>}
           {this.state.d20}
-          <input type="number" placeholder={0} onChange={this.onModifierChange.bind(this)} value={this.state.modifier}/>
+          {this.props.user === 'Gm' ? <input type="number" placeholder={0} onChange={this.onModifierChange.bind(this)} value={this.state.modifier}/> : ''}
         </div>
       )
   }/////////////////////////////////////////////////////////////////////////////
 };
+
+//////////////////////////////////////
+const mapStateToProps = (state) => {
+  return{
+    ...state,
+    user: state.user,
+    authed: state.authed
+  };
+};/////////////////////////////////////
+
+export default connect(mapStateToProps)(Dice);
 
 Dice.propTypes ={
   owner: PropTypes.string.isRequired

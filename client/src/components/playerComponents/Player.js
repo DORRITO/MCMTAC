@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-import {Dice} from './Dice';
-import {Chat} from './Chat';
-// import onCheckboxChange from './DisablePlayer';
+import Dice from './Dice';
+import Chat from './Chat';
 import PlayerBoxIcon from './PlayerBoxIcon';
 
-export class Player extends React.Component{
+class Player extends React.Component{
   //******************
   constructor(props){
     super(props);
@@ -32,12 +32,24 @@ export class Player extends React.Component{
             <h5>{this.props.name}</h5>
             {!this.state.isChecked ? <Dice owner={this.props.name}/> : 'INCAPACITATED'}
         </div> 
-        <input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM
-        <Chat owner={this.props.name}/>
+        {this.props.user === 'Gm' ? <div><input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM</div> : ''}
+        {this.props.name === this.props.user || this.props.user === 'Gm' ? <Chat owner={this.props.name}/> : ''}
       </div>
     );
   }////////////////////////////////////////////////////////////////////////////
 };
+
+//////////////////////////////////////
+const mapStateToProps = (state) => {
+  return{
+    ...state,
+    user: state.user,
+    authed: state.authed
+  };
+};/////////////////////////////////////
+
+export default connect(mapStateToProps)(Player);
+
 //////////////////////////////////////////////////////////////////////
 Player.propTypes ={
   name: PropTypes.string.isRequired,

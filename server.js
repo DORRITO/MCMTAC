@@ -39,7 +39,12 @@ io.on('connection', (socket) => {
   });
 
   app.get('/login', (req, res) => {
-    res.send({ express: 'backend: please enter your username and password' });
+    // res.send({ express: 'backend: please enter your username and password' });
+    PlayersAPI.find().then((players) => {
+      if(!players){return res.status(404).send()}
+      console.log(players[0].Players);
+      res.send( players[0].Players );
+    })
   });
 
   //////////////////////////////////routes///////////////////////////////////////////////////////
