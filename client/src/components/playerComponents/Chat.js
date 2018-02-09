@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
 import openSocket from 'socket.io-client';
+
 const  socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
 
 export default class Chat extends React.Component{
@@ -17,7 +17,6 @@ export default class Chat extends React.Component{
   
   //////////////////////////////////////////////////////////////////////////////////
   componentDidMount(){
-    // socket.on('newMessage', (message) => {this.state.chatList.push({...message}) });
     socket.on('newMessage', (message) => {
         this.setState({ chatList: [...this.state.chatList, {...message}] }) 
     });

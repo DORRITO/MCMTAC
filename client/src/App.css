@@ -2,15 +2,20 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo { */
   /* animation: App-logo-spin infinite 20s linear; */
-  height: 80px;
-}
+  /* height: 80px; */
+/* } */
 
 .App-header {
-  background-color: #83fdfd;
-  height: 150px;
+  background-color: #65e69f;
+  height: 9rem;
   padding: 20px;
+  color: brown;
+}
+
+.Header-gamepage{
+  background-color: #65e69f;
   color: brown;
 }
 
@@ -22,6 +27,44 @@
   font-size: large;
 }
 
+.App-Map{
+  width: 50%;
+  height: 25rem;
+}
+
+.Header-gamepage{
+  margin: 0 6rem -2rem 4rem;
+  color: #4b220a;
+}
+
+.To-Login{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Pointer:hover{
+  cursor: pointer;
+  
+}
+
+.Top-H1{
+  color: #4b220a;
+  margin-top: 0rem;
+  margin-bottom: -1.5rem;
+}
+.Top-H3{
+  color: #4b220a;
+  margin-bottom: -1.25rem;
+}
+.Top-H6{
+  color: #4b220a;
+  font-size: .55rem;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

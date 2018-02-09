@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 // import { Route, Redirect } from 'react-router-dom';
 import openSocket from 'socket.io-client';
 import {connect} from 'react-redux';
+import {Button} from 'semantic-ui-react';
 
 const socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
 
@@ -25,12 +26,22 @@ class Dice extends React.Component{
   // }
   //////////////////////user users name////////////////////////////////////
   componentDidMount(){
-    console.log(this.props, 'awuhhwuhh')
     this.callGetAPI()
       .then(res => this.setState({ name: res[this.state.owner].name }) )
       .catch(err => console.log(err))
 
-    socket.on('dice', (data) => {if(data.name === this.state.owner){this.setState({d20: data.dice})} });
+    socket.on('dice', (data) => {if(data.name === this.state.owner && data.name !== 'Tylendel'){
+                                  setTimeout(() => {this.setState({d20: `3...`})}, );
+                                  setTimeout(() => {this.setState({d20: `2...`})}, 500);
+                                  setTimeout(() => {this.setState({d20: `1...`})}, 1000);
+                                  setTimeout(() => {this.setState({d20: data.dice})}, 1500);
+                                }else if(data.name === this.state.owner && data.name === 'Tylendel'){
+                                  setTimeout(() => {this.setState({d20: `3...`})}, );
+                                  setTimeout(() => {this.setState({d20: `2...`})}, 500);
+                                  setTimeout(() => {this.setState({d20: `6...`})}, 1000);
+                                  setTimeout(() => {this.setState({d20: `6!?!`})}, 1300);
+                                  setTimeout(() => {this.setState({d20: data.dice})}, 2000);
+                                }});
     socket.on('modifier2', (data) => {if(data.name === this.state.owner){this.setState({modifier: data.modifier})} });
   }//////////////////////////////////////////////////////////////////////////
 
@@ -79,7 +90,7 @@ class Dice extends React.Component{
   render(){
       return (
         <div>
-          {this.props.user === this.props.owner || this.props.user === 'Gm' ? <button onClick={this.roll.bind(this)}>Roll +{this.state.modifier}</button> : <button>Roll +{this.state.modifier}</button>}
+          {this.props.user === this.props.owner || this.props.user === 'Gm' ? <Button color="green" size={"mini"} onClick={this.roll.bind(this)}>Roll +{this.state.modifier}</Button> : <Button color="green" size={"mini"} >Roll +{this.state.modifier}</Button>}
           {this.state.d20}
           {this.props.user === 'Gm' ? <input type="number" placeholder={0} onChange={this.onModifierChange.bind(this)} value={this.state.modifier}/> : ''}
         </div>

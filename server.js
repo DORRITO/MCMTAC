@@ -20,29 +20,28 @@ let {PlayersAPI} = require('./server/models/players');
 
 /////////////////////////////////socket messages////////////////////////////////////////////
 io.on('connection', (socket) => {
-  console.log('new user connected');
-
   socket.emit('newMessage', generateMessage('AO Admin', 'The MCMTAC welcomes you to chat.'));
+
+  socket.on('incapacitated', (isChecked, name) => {
+    io.emit('incapacitated2', {isChecked, name})
+  });
 
   socket.on('modifier1', (name, mod) => {
     io.emit('modifier2', modifierSocket(name, mod) )
-  })
+  });
 
   socket.on('createMessage', (message, callback) => {
-    console.log('createMessage', message);
     io.emit('newMessage', generateMessage(message.from, message.text));
       callback('this is from the server');
   })
 
-  app.get('/home', (req, res) => {
-    res.send({ express: 'this is the home page from the back end'});
-  });
+  // app.get('/home', (req, res) => {
+  //   res.send({ express: 'this is the home page from the back end'});
+  // });
 
   app.get('/login', (req, res) => {
-    // res.send({ express: 'backend: please enter your username and password' });
     PlayersAPI.find().then((players) => {
       if(!players){return res.status(404).send()}
-      console.log(players[0].Players);
       res.send( players[0].Players );
     })
   });
@@ -75,8 +74,6 @@ io.on('connection', (socket) => {
       }).catch((e) => { res.status(400).send()});
 
     });////////////////////////////end routes/////////////////////////////////////////////////
-
-  socket.on('disconnect', () => {console.log('user was disconnected')});
 });/////////////////////////////////////////////////////////////////////////////////////////////
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
