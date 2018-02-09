@@ -5,7 +5,7 @@ import openSocket from 'socket.io-client';
 import {connect} from 'react-redux';
 import {Button} from 'semantic-ui-react';
 
-const socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
+const socket = openSocket('https://mcmtac.herokuapp.com/');
 
 class Dice extends React.Component{
   

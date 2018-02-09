@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
   });
 
   //////////////////////////////////routes///////////////////////////////////////////////////////
-  app.route('/players')
+  app.route('/gamepage')
     .get(function (req, res)  {
       PlayersAPI.find().then((players) => {
         if(!players){return res.status(404).send()}

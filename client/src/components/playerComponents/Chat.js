@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import openSocket from 'socket.io-client';
 
-const  socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
+const  socket = openSocket('https://mcmtac.herokuapp.com/');
 
 export default class Chat extends React.Component{
   

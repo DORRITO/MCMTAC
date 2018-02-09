@@ -8,7 +8,7 @@ import Dice from './Dice';
 import Chat from './Chat';
 import PlayerBoxIcon from './PlayerBoxIcon';
 
-const socket = openSocket('https://blooming-dawn-99864.herokuapp.com/');
+const socket = openSocket('https://mcmtac.herokuapp.com/');
 
 class Player extends React.Component{
   //******************
