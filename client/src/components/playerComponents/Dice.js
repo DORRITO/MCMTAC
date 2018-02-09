@@ -47,7 +47,7 @@ class Dice extends React.Component{
 
   ///////////////////grab data/////////////////////////////////
   callGetAPI = async () => {
-    const response = await fetch('/gamepage');
+    const response = await fetch('/players');
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     return body;
@@ -57,7 +57,7 @@ class Dice extends React.Component{
   callFetchAPI = async (d20) => {
     // const response = await fetch(`/players?name=${this.state.name}&dice=${d20}`, {method: 'PATCH'});
     // const response = await fetch('/players', { 
-    fetch('/gamepage', { 
+    fetch('/players', { 
       method: 'PATCH',
       headers: {'Content-Type':'application/json'}, 
       body: JSON.stringify({ name: this.state.name, dice: d20}) 

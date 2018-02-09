@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
   //   res.send({ express: 'this is the home page from the back end'});
   // });
 
-  app.get('/login', (req, res) => {
+  app.get('/loginplayers', (req, res) => {
     PlayersAPI.find().then((players) => {
       if(!players){return res.status(404).send()}
       res.send( players[0].Players );
@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
   });
 
   //////////////////////////////////routes///////////////////////////////////////////////////////
-  app.route('/gamepage')
+  app.route('/players')
     .get(function (req, res)  {
       PlayersAPI.find().then((players) => {
         if(!players){return res.status(404).send()}
