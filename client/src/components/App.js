@@ -28,9 +28,9 @@ class App extends Component {
         <div><Modal dimmer closeIcon trigger={<Label color="blue" className="Pointer">The story so far...</Label>}>
           <Modal.Header>Last time on Terraforma!</Modal.Header>
           <Modal.Content>
-            Rychar, Tylendel, and the ever antagonistic and reluctant Wolfbane ventured into the sand village in order to get back the stolen water for the town. 
-            <br />In the process they got a sandperson banished, but found out what happened to the water.
-            <br />Now They are back in town, and have come across the Arcane Order, who don't look too impressed with Tylendel...
+            Rychar, Tylendel, and the ever antagonistic and reluctant Wolfbane ventured towards the dunes to the northwest of the town. 
+            <br />The Arcane order took over the town, and Tylendel was placed in charge of the group, leading the way to the well
+            <br />so that they could return water and save the town...
           </Modal.Content>
         </Modal></div>
       </div>
