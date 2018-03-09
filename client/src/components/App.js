@@ -24,7 +24,9 @@ class App extends Component {
           <div>{' '}Presented by the Mayors Cross Map Townsmanship Aficionados Club</div>
         </Header>
         <Image className="App-Map" src={map} verticalAlign='middle'/>
-        <div className="To-Login"><Button basic color="olive"><h4><Link style={{color: '#4b220a'}} to="/login">To Login</Link></h4></Button></div>
+        <div className="To-Login">
+          <Link to="/login"><Button basic color="olive" style={{color: '#4b220a'}}><h4>To Login</h4></Button></Link>
+        </div>
         <div><Modal dimmer closeIcon trigger={<Label color="blue" className="Pointer">The story so far...</Label>}>
           <Modal.Header>Last time on Terraforma!</Modal.Header>
           <Modal.Content>
