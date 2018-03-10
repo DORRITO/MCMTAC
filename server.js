@@ -1,23 +1,37 @@
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
-
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
-
 const {mongoose} = require('./server/db/mongoose');
 const bodyParser = require('body-parser');
 
+console.log(process.env.NODE_ENV === 'production' ? 'hi' : 'bye ');
 // app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 const port = process.env.PORT || 8000;
 app.use(express.static(`${__dirname}/client/build`));
+// app.use(express.static(`${__dirname}/client/build`));
 
 const {diceSocket, modifierSocket} = require('./server/utils/diceSocket');
 const {generateMessage} = require('./server/utils/message');
 let {PlayersAPI} = require('./server/models/players');
 
+app.get('/loginplayer', (req, res) => {
+  PlayersAPI.find().then((players) => {
+    if(!players){return res.status(404).send()}
+    res.send( players[0].Players );
+  })
+});
+
+app.get('/players', (req, res) => {
+  PlayersAPI.find().then((players) => {
+    if(!players){return res.status(404).send()}
+  
+    res.send( players[0].Players );
+  })
+})
 /////////////////////////////////socket messages////////////////////////////////////////////
 io.on('connection', (socket) => {
   socket.emit('newMessage', generateMessage('AO Admin', 'The MCMTAC welcomes you to chat.'));
@@ -39,23 +53,16 @@ io.on('connection', (socket) => {
   //   res.send({ express: 'this is the home page from the back end'});
   // });
 
-  app.get('/loginplayer', (req, res) => {
-    PlayersAPI.find().then((players) => {
-      if(!players){return res.status(404).send()}
-      res.send( players[0].Players );
-    })
-  });
+  // app.get('/loginplayer', (req, res) => {
+  //   PlayersAPI.find().then((players) => {
+  //     if(!players){return res.status(404).send()}
+  //     res.send( players[0].Players );
+  //   })
+  // });
 
   //////////////////////////////////routes///////////////////////////////////////////////////////
-  app.route('/players')
-    .get(function (req, res)  {
-      PlayersAPI.find().then((players) => {
-        if(!players){return res.status(404).send()}
-      
-        res.send( players[0].Players );
-      })
-    })
-    .patch(function (req, res)  {
+  
+  app.patch('/players', (req, res) => {
       // let userInfo = req.query; //query if using url string
       let name = req.body.name;
       let dice = req.body.dice;
@@ -73,7 +80,7 @@ io.on('connection', (socket) => {
         res.send( players.Players );
       }).catch((e) => { res.status(400).send()});
 
-    });////////////////////////////end routes/////////////////////////////////////////////////
+  });////////////////////////////end routes/////////////////////////////////////////////////
 });/////////////////////////////////////////////////////////////////////////////////////////////
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
