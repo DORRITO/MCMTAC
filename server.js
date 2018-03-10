@@ -6,12 +6,12 @@ const server = http.createServer(app);
 const io = socketIO(server);
 const {mongoose} = require('./server/db/mongoose');
 const bodyParser = require('body-parser');
+const localOrDev = process.env.NODE_ENV === 'production' ? `${__dirname}/client/build` : `${__dirname}/client/public`;
 
-console.log(process.env.NODE_ENV === 'production' ? 'hi' : 'bye ');
 // app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 const port = process.env.PORT || 8000;
-app.use(express.static(`${__dirname}/client/build`));
+app.use(express.static(localOrDev));
 // app.use(express.static(`${__dirname}/client/build`));
 
 const {diceSocket, modifierSocket} = require('./server/utils/diceSocket');
