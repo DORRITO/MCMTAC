@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
   //   res.send({ express: 'this is the home page from the back end'});
   // });
 
-  app.get('/loginplayers', (req, res) => {
+  app.get('/login', (req, res) => {
     PlayersAPI.find().then((players) => {
       if(!players){return res.status(404).send()}
       res.send( players[0].Players );
