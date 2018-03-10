@@ -51,7 +51,7 @@ io.on('connection', (socket) => {
       callback('this is from the server');
   })
   //******************************routes******************************
-  
+  //app.route for multiple get/post/ calls
   app.patch('/players', (req, res) => {
       // let userInfo = req.query; //query if using url string
       let name = req.body.name;
