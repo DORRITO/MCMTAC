@@ -10,7 +10,7 @@ import '../App.css';
 const Login = () => (
   <div className="App">
     <Header className="App-header" size="medium">
-      <Button color="teal" ><Link style={{color: 'black'}}  to="/">Home</Link></Button>
+      <Link to="/"><Button color="teal" style={{color: '#000'}}>Home</Button></Link>
       <h1 className='Top-H1'>{' '}The Mayors Cross Map Townsmanship Aficionados Club welcomes you to enter Terraforma!</h1>
       <h3 className='Top-H3'>{' '}The Arcane Order is currently prohibiting most travel to the East, this portal will take you to the West.  Please enjoy!</h3>
       <h6 className='Top-H6'>{' '}The MCMTAC reminds you to please not to try to head East under the current advisory.  We don't want you incinerated!</h6>
