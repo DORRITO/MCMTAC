@@ -7,6 +7,7 @@ import {history} from './../routers/AppRouter';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 const loginFail = 'This login or password is not registered with the MCMTAC. \n\nIf you enter at this point, a member of the arcane order may incinerate you. While some of our citizens might try a taste of a well done version of you, We like you the way you are, please register!'
+const env = process.env.NODE_ENV === 'production' ? '/loginplayers' : '/loginplayers';
 
 class LoginForm extends Component {
 
@@ -17,10 +18,10 @@ class LoginForm extends Component {
         password: '',
     };
   }
-
+  
   /////////////////////////////////////////////////////
   callApi = async () => {
-    const response = await fetch('/loginplayers');
+    const response = await fetch(env);
     const body = await response.json();
     
     if (response.status !== 200) throw Error(body.message);
