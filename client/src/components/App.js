@@ -25,7 +25,7 @@ class App extends Component {
         </Header>
         <Image className="App-Map" src={map} verticalAlign='middle'/>
         <div className="To-Login">
-          <Link to="/login"><Button basic color="olive" style={{color: '#4b220a'}}><h4>To Login</h4></Button></Link>
+          <Link to="/login"><Button basic color="olive"><h4 style={{color: '#000'}}>To Login</h4></Button></Link>
         </div>
         <div><Modal dimmer closeIcon trigger={<Label color="blue" className="Pointer">The story so far...</Label>}>
           <Modal.Header>Last time on Terraforma!</Modal.Header>
