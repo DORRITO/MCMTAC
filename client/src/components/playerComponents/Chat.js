@@ -9,10 +9,13 @@ export default class Chat extends React.Component{
   
   constructor(props){
     super(props);
+    this.keyCount = 0;
+    this.getKey = this.getKey.bind(this);
     this.state = {
-      text: '',
+      chatList: [],
+      keyCount: 0,
       nextId: 0,
-      chatList: []
+      text: '',
     };
   }
   
@@ -31,9 +34,14 @@ export default class Chat extends React.Component{
   ////////////////////////map throw chat state////////////////////////
   renderChatList() {
     return this.state.chatList.map((chatItem) => {
-        return <li key={chatItem.createdAt}>{chatItem.from}: {chatItem.text}</li>
+        return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
     });
-  }///////////////////////////////////////////////////////////////////
+  }//***************************************
+  //*************key for chat***************
+  getKey(){
+    return this.keyCount++;
+  }//***************************************
+  ///////////////////////////////////////////////////////////////////
 
   ////////////////////////
   clear(e) {
