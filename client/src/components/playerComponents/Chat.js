@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import openSocket from 'socket.io-client';
 
-const  socket = openSocket('https://mcmtac.herokuapp.com/');
+const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'http://localhost:3000/';
+const socket = openSocket(env);
 
 export default class Chat extends React.Component{
   
