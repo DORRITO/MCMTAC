@@ -24,7 +24,6 @@ export default class Chat extends React.Component{
   componentDidMount(){
     socket.on('newMessage', (message) => {
       this.setState({ chatList: [...this.state.chatList, {...message}] });
-      console.log(this.state.chatList);
     });
   }//////////////////////////////////////////////////////////////////////////////////
 
@@ -36,7 +35,9 @@ export default class Chat extends React.Component{
   ////////////////////////map throw chat state////////////////////////
   renderChatList() {
     return this.state.chatList.map((chatItem) => {
-      if(chatItem.to){console.log(chatItem.to, 'hello!')}
+      if(chatItem.to === 'Gm'){
+        return {}
+      }
       return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
     });
   }//***************************************
