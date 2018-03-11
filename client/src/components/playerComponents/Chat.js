@@ -16,13 +16,15 @@ export default class Chat extends React.Component{
       keyCount: 0,
       nextId: 0,
       text: '',
+      to: ''
     };
   }
   
   //////////////////////////////////////////////////////////////////////////////////
   componentDidMount(){
     socket.on('newMessage', (message) => {
-        this.setState({ chatList: [...this.state.chatList, {...message}] }) 
+      this.setState({ chatList: [...this.state.chatList, {...message}] });
+      console.log(this.state.chatList);
     });
   }//////////////////////////////////////////////////////////////////////////////////
 
@@ -64,8 +66,8 @@ export default class Chat extends React.Component{
     e.preventDefault();
     socket.emit('createGMMessage', {
         from: this.props.owner,
-        to: 'Gm',
-        text: this.state.text
+        text: this.state.text,
+        to: 'Gm'
     }, function(){});
     this.setState({text: ''});
   }
@@ -75,9 +77,10 @@ export default class Chat extends React.Component{
   render(){
       return (
         <div>
-          <form onSubmit={this.send.bind(this)}>
+          <form>
             <input type="text" onChange={this.onTextChange.bind(this)} value={this.state.text} placeholder="message"/>
-            <button>Send chat</button><button className="Important">Send to GM</button>
+            <button onClick={this.send.bind(this)}>Send chat</button>
+            <button className="Important" onClick={this.sendToGM.bind(this)}>Send to GM</button>
             <button onClick={this.clear.bind(this)}>Clear Chat</button>
           </form>
           <ul>{this.renderChatList()}</ul>

@@ -1,7 +1,8 @@
-var generateMessage = (from, text) => {
+var generateMessage = (from, text, to) => {
     return {
       from,
-      text
+      text,
+      to
     };
 };
 

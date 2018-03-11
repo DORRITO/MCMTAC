@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
   })
 
   socket.on('createGMMessage', (message, callback) => {
-    io.emit('newMessage', generateMessage(message.from, message.to, message.text));
+    io.emit('newMessage', generateMessage(message.from, message.text, message.to));
       callback('this is from the server');
   })
   //******************************routes******************************
