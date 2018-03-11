@@ -37,7 +37,7 @@ export default class Chat extends React.Component{
     return this.state.chatList.map((chatItem) => {
       if(chatItem.to === 'Gm'){
         if(this.state.from === this.props.owner || this.props.owner === 'Gm'){
-          return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
+          return <li key={this.getKey()}><h4 className="Special">*{chatItem.from}*</h4> : {chatItem.text}</li>
         }
       }else{
         return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>

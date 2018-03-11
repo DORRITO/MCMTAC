@@ -51,6 +51,12 @@
   
 }
 
+.Special{
+  color: #da2d61;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
 .Top-H1{
   color: #4b220a;
   margin-top: 0rem;
