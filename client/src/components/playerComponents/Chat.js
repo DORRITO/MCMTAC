@@ -13,7 +13,9 @@ export default class Chat extends React.Component{
     this.getKey = this.getKey.bind(this);
     this.state = {
       chatList: [],
+      chatListGM: [],
       keyCount: 0,
+      from: '',
       nextId: 0,
       text: ''
     };
@@ -22,7 +24,7 @@ export default class Chat extends React.Component{
   //////////////////////////////////////////////////////////////////////////////////
   componentDidMount(){
     socket.on('newMessage', (message) => {
-      this.setState({ chatList: [...this.state.chatList, {...message}] });
+      this.setState({ chatList: [...this.state.chatList, {...message}], from: message.from });
     });
   }//////////////////////////////////////////////////////////////////////////////////
 
@@ -34,10 +36,14 @@ export default class Chat extends React.Component{
   ////////////////////////map throw chat state////////////////////////
   renderChatList() {
     return this.state.chatList.map((chatItem) => {
-      // if(chatItem.to === 'Gm'){
-      //   return {}
-      // }
-      return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
+      if(chatItem.to === 'Gm'){
+        if(this.state.from === this.props.owner || this.props.owner === 'Gm'){
+          return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
+        }
+      }else{
+        return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
+      }
+      return null
     });
   }//***************************************
   //*************key for chat***************
@@ -77,7 +83,7 @@ export default class Chat extends React.Component{
   render(){
       return (
         <div>
-          <form>
+          <form >
             <input type="text" onChange={this.onTextChange.bind(this)} value={this.state.text} placeholder="message"/>
             <button onClick={this.send.bind(this)}>Send chat</button>
             <button className="Important" onClick={this.sendToGM.bind(this)}>Send to GM</button>
