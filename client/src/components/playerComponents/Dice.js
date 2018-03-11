@@ -5,7 +5,7 @@ import openSocket from 'socket.io-client';
 import {connect} from 'react-redux';
 import {Button} from 'semantic-ui-react';
 
-const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'http://localhost:3000/';
+const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'localhost:3000/';
 const socket = openSocket(env);
 
 class Dice extends React.Component{

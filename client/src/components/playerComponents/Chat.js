@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import openSocket from 'socket.io-client';
 
-const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'http://localhost:3000/';
+const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'localhost:3000/';
 const socket = openSocket(env);
 
 export default class Chat extends React.Component{
@@ -15,8 +15,7 @@ export default class Chat extends React.Component{
       chatList: [],
       keyCount: 0,
       nextId: 0,
-      text: '',
-      to: ''
+      text: ''
     };
   }
   
@@ -35,9 +34,9 @@ export default class Chat extends React.Component{
   ////////////////////////map throw chat state////////////////////////
   renderChatList() {
     return this.state.chatList.map((chatItem) => {
-      if(chatItem.to === 'Gm'){
-        return {}
-      }
+      // if(chatItem.to === 'Gm'){
+      //   return {}
+      // }
       return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
     });
   }//***************************************
