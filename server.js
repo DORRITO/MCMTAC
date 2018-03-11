@@ -50,6 +50,11 @@ io.on('connection', (socket) => {
     io.emit('newMessage', generateMessage(message.from, message.text));
       callback('this is from the server');
   })
+
+  socket.on('createGMMessage', (message, callback) => {
+    io.emit('newMessage', generateMessage(message.from, message.to, message.text));
+      callback('this is from the server');
+  })
   //******************************routes******************************
   //app.route for multiple get/post/ calls
   app.patch('/players', (req, res) => {

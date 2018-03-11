@@ -49,15 +49,26 @@ export default class Chat extends React.Component{
     this.setState({chatList: []})
   }///////////////////////////
 
-  ///////////////////////////roll///////////////////////////////////////
-   send(e) {
+  ///////////////////////////chat///////////////////////////////////////
+  send(e) {
     e.preventDefault();
     socket.emit('createMessage', {
         from: this.props.owner,
         text: this.state.text
     }, function(){});
     this.setState({text: ''});
-  }///////////////////////////////////////////////////////////////////////
+  }
+  //********************************
+  sendToGM(e) {
+    e.preventDefault();
+    socket.emit('createGMMessage', {
+        from: this.props.owner,
+        to: 'Gm',
+        text: this.state.text
+    }, function(){});
+    this.setState({text: ''});
+  }
+  ///////////////////////////////////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////////////////////
   render(){
