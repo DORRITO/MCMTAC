@@ -13,7 +13,6 @@ export default class Chat extends React.Component{
     this.getKey = this.getKey.bind(this);
     this.state = {
       chatList: [],
-      chatListGM: [],
       keyCount: 0,
       from: '',
       nextId: 0,
