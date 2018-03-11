@@ -34,7 +34,8 @@ export default class Chat extends React.Component{
   ////////////////////////map throw chat state////////////////////////
   renderChatList() {
     return this.state.chatList.map((chatItem) => {
-        return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
+      if(chatItem.to){console.log(chatItem.to, 'hello!')}
+      return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
     });
   }//***************************************
   //*************key for chat***************
@@ -76,7 +77,7 @@ export default class Chat extends React.Component{
         <div>
           <form onSubmit={this.send.bind(this)}>
             <input type="text" onChange={this.onTextChange.bind(this)} value={this.state.text} placeholder="message"/>
-            <button>Send chat</button>
+            <button>Send chat</button><button className="Important">Send to GM</button>
             <button onClick={this.clear.bind(this)}>Clear Chat</button>
           </form>
           <ul>{this.renderChatList()}</ul>
