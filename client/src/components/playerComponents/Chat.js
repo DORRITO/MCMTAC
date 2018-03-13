@@ -37,12 +37,12 @@ export default class Chat extends React.Component{
     return this.state.chatList.map((chatItem) => {
       if(chatItem.to === 'Gm'){
         if(this.state.from === this.props.owner || this.props.owner === 'Gm'){
-          return <li key={this.getKey()}><h4 className="Special">*{chatItem.from}*</h4> : {chatItem.text}</li>
+          return <li key={this.getKey()}><h4 className="Special">*{chatItem.from}*</h4> : {chatItem.text}</li>;
         }
       }else{
-        return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>
+        return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>;
       }
-      return null
+      // return null;
     });
   }
   //*************key for chat***************
@@ -83,17 +83,18 @@ export default class Chat extends React.Component{
       return (
         <div>
           <form >
-            <input type="text" onChange={this.onTextChange.bind(this)} value={this.state.text} placeholder="message"/>
-            <button onClick={this.send.bind(this)}>Send chat</button>
-            <button className="Important" onClick={this.sendToGM.bind(this)}>Send to GM</button>
-            <button onClick={this.clear.bind(this)}>Clear Chat</button>
+            {this.props.owner === this.props.user || this.props.user === 'Gm' ? <input type="text" onChange={this.onTextChange.bind(this)} value={this.state.text} placeholder="message"/> : ''}
+            {this.props.owner === this.props.user || this.props.user === 'Gm' ? <button onClick={this.send.bind(this)}>Send chat</button> : ''}
+            {this.props.owner === this.props.user || this.props.user === 'Gm' ? <button className="Important" onClick={this.sendToGM.bind(this)}>Send to GM</button> : ''}
+            {this.props.owner === this.props.user || this.props.user === 'Gm' ? <button onClick={this.clear.bind(this)}>Clear Chat</button> : ''}
           </form>
-          <ul>{this.renderChatList()}</ul>
+          {this.props.owner === this.props.user ? <ul>{this.renderChatList()}</ul> : ''}
         </div>
       )
   }/////////////////////////////////////////////////////////////////////////////
 };
 
 Chat.propTypes ={
-    owner: PropTypes.string.isRequired
+    owner: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired
 };

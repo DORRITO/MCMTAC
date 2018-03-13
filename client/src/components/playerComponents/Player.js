@@ -45,7 +45,7 @@ class Player extends React.Component{
             {this.state.isChecked && this.props.user === this.state.knockedOut ? 'INCAPACITATED' : <Dice owner={this.props.name}/>}
         </div> 
         {this.props.user === 'Gm' ? <div><input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM</div> : ''}
-        {this.props.name === this.props.user ? <Chat owner={this.props.name}/> : ''}
+        <Chat owner={this.props.name} user={this.props.user}/>
       </div>
     );
   }////////////////////////////////////////////////////////////////////////////
