@@ -43,7 +43,7 @@ export default class Chat extends React.Component{
       }else{
         return <li key={this.getKey()}>{chatItem.from} : {chatItem.text}</li>;
       }
-      // return null;
+      return null;
     });
   }
   //*************key for chat***************
