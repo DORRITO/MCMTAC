@@ -23,7 +23,6 @@ export default class Chat extends React.Component{
   //////////////////////////////////////////////////////////////////////////////////
   componentDidMount(){
     socket.on('newMessage', (message) => {
-      console.log(message)
       this.setState({ chatList: [...this.state.chatList, {...message}], from: message.from });
     });
   }//////////////////////////////////////////////////////////////////////////////////
