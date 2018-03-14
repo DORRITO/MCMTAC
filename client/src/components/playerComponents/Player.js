@@ -23,7 +23,7 @@ class Player extends React.Component{
 
   //********************************************************************
   componentDidMount(){
-    socket.on('incapacitated2', (data) => {if(data.name === this.props.user){this.setState({isChecked: data.isChecked, knockedOut: data.name})} });
+    socket.on('incapacitated2', (data) => {this.setState({isChecked: data.isChecked, knockedOut: data.name}) });
   }//********************************************************************
 
   //**********************************
@@ -42,7 +42,7 @@ class Player extends React.Component{
         <PlayerBoxIcon icon={this.props.icon}/>
         </div>
         <div className="divWithbackground">
-            {this.state.isChecked && this.props.user === this.state.knockedOut ? 'INCAPACITATED' : <Dice owner={this.props.name}/>}
+            {this.props.name === this.state.knockedOut ? 'INCAPACITATED' : <Dice owner={this.props.name}/>}
         </div> 
         {this.props.user === 'Gm' ? <div><input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM</div> : ''}
         <Chat owner={this.props.name} user={this.props.user}/>
