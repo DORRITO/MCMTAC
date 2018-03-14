@@ -17,13 +17,16 @@ class Player extends React.Component{
     this.state = {
       isChecked: false,
       modifier: 0,
-      knockedOut: ''
+      knockedOut: null
     };
   }//*****************
 
   //********************************************************************
   componentDidMount(){
-    socket.on('incapacitated2', (data) => {this.setState({isChecked: data.isChecked, knockedOut: data.name}) });
+    //check if incapacitated is checked.  knocked out is set to null through ternary if it is unchecked
+    socket.on('incapacitated2', (data) => {
+      this.setState({isChecked: data.isChecked, knockedOut: this.state.isChecked ? null : data.name}) 
+    });
   }//********************************************************************
 
   //**********************************
