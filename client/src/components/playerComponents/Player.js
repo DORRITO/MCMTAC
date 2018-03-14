@@ -65,5 +65,4 @@ export default connect(mapStateToProps)(Player);
 //////////////////////////////////////////////////////////////////////
 Player.propTypes ={
   name: PropTypes.string.isRequired
-  // icon: PropTypes.array.isRequired
 };
