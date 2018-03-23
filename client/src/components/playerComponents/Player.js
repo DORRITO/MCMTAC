@@ -8,7 +8,6 @@ import Dice from './Dice';
 import Chat from './Chat';
 import PlayerBoxIcon from './PlayerBoxIcon';
 
-// const socket = openSocket('https://mcmtac.herokuapp.com/')
 const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'localhost:3000/';
 const socket = openSocket(env);
 
