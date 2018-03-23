@@ -8,6 +8,7 @@ import Dice from './Dice';
 import Chat from './Chat';
 import PlayerBoxIcon from './PlayerBoxIcon';
 
+// const socket = openSocket('https://mcmtac.herokuapp.com/')
 const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'localhost:3000/';
 const socket = openSocket(env);
 
@@ -46,7 +47,7 @@ class Player extends React.Component{
         <PlayerBoxIcon icon={this.props.icon}/>
         </div>
         <div className="divWithbackground">
-            {this.props.name === this.state.knockedOut ? 'INCAPACITATED' : <Dice owner={this.props.name}/>}
+            {this.props.name === this.state.knockedOut ? <h2>'INCAPACITATED'</h2> : <Dice owner={this.props.name}/>}
         </div> 
         {this.props.user === 'Gm' ? <div><input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM</div> : ''}
         <Chat owner={this.props.name} user={this.props.user}/>
