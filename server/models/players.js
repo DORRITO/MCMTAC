@@ -18,9 +18,9 @@ let newPlayers = new PlayersAPI({
             password: 'ricroll',
             loggedIn: false,
             inventory: {
-                
+                weapon: 'sword'
             },
-            stats: {
+            skills: {
 
             }
         },
@@ -31,9 +31,9 @@ let newPlayers = new PlayersAPI({
             password: 'fishface6',
             loggedIn: false,
             inventory: {
-                
+                weapon: 'sword'
             },
-            stats: {
+            skills: {
 
             }
         },
@@ -44,9 +44,9 @@ let newPlayers = new PlayersAPI({
             password: 'reygan',
             loggedIn: false,
             inventory: {
-                
+                weapon: 'sword'
             },
-            stats: {
+            skills: {
 
             }
         }, 
