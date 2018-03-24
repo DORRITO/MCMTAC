@@ -21,7 +21,7 @@ let newPlayers = new PlayersAPI({
                 weapon: 'sword'
             },
             skills: {
-
+                abilities: []
             }
         },
         Tylendel: {
@@ -34,7 +34,7 @@ let newPlayers = new PlayersAPI({
                 weapon: 'sword'
             },
             skills: {
-
+                abilities: []
             }
         },
         Wolfbane: {
@@ -47,7 +47,7 @@ let newPlayers = new PlayersAPI({
                 weapon: 'sword'
             },
             skills: {
-
+                abilities: []
             }
         }, 
         Gm : {
