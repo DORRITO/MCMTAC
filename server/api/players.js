@@ -5,21 +5,39 @@ module.exports = {
             dice: '',
             login: 'rychar',
             password: 'ricroll',
-            loggedIn: 'false'
+            loggedIn: 'false',
+            inventory: {
+                
+            },
+            stats: {
+
+            }
         },
         Tylendel: {
             name: 'Tylendel',
             dice: '',
             login: 'tylendel',
             password: 'fishface6',
-            loggedIn: 'false'
+            loggedIn: 'false',
+            inventory: {
+
+            },
+            stats: {
+
+            }
         },
         Wolfbane: {
             name: 'Wolfbane',
             dice: '',
             login: 'wolfbane',
             password: 'reygan',
-            loggedIn: 'false'
+            loggedIn: 'false',
+            inventory: {
+
+            },
+            stats: {
+
+            }
         }, 
         GM : {
             name: 'Gm',
