@@ -52,7 +52,7 @@ let newPlayers = new PlayersAPI({
             race: 'Elf',
             class: 'Hunter',
             profession: 'Scout, spy',
-            stats: {health: 'full'},
+            stats: {health: 'full', will: '100'},
             affiliation: 'None',
             dice: '',
             login: 'wolfbane',
