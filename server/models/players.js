@@ -14,6 +14,10 @@ let newPlayers = new PlayersAPI({
         Rychar:{
             name: 'Rychar',
             race: '',
+            class: '',
+            profession: '',
+            stats: {},
+            affiliation: '',
             dice: '',
             login: 'rychar',
             password: 'ricroll',
@@ -28,6 +32,10 @@ let newPlayers = new PlayersAPI({
         Tylendel: {
             name: 'Tylendel',
             race: '',
+            class: '',
+            profession: '',
+            stats: {},
+            affiliation: '',
             dice: '',
             login: 'tylendel',
             password: 'fishface6',
@@ -42,6 +50,10 @@ let newPlayers = new PlayersAPI({
         Wolfbane: {
             name: 'Wolfbane',
             race: '',
+            class: '',
+            profession: '',
+            stats: {},
+            affiliation: '',
             dice: '',
             login: 'wolfbane',
             password: 'reygan',
