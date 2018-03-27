@@ -13,6 +13,7 @@ let newPlayers = new PlayersAPI({
     Players: {
         Rychar:{
             name: 'Rychar',
+            race: '',
             dice: '',
             login: 'rychar',
             password: 'ricroll',
@@ -26,6 +27,7 @@ let newPlayers = new PlayersAPI({
         },
         Tylendel: {
             name: 'Tylendel',
+            race: '',
             dice: '',
             login: 'tylendel',
             password: 'fishface6',
@@ -39,6 +41,7 @@ let newPlayers = new PlayersAPI({
         },
         Wolfbane: {
             name: 'Wolfbane',
+            race: '',
             dice: '',
             login: 'wolfbane',
             password: 'reygan',
