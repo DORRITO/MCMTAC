@@ -16,7 +16,12 @@ let newPlayers = new PlayersAPI({
             race: 'Half elf',
             class: 'Fighter',
             profession: 'Thief, Politician',
-            stats: {},
+            stats: {
+                str: '', skill: '',
+                dex: '', char: '',
+                const: '', int: '',
+                wis: ''
+            },
             affiliation: 'Mayors cross map townsmanship aficionados club!',
             dice: '',
             login: 'rychar',
@@ -34,7 +39,12 @@ let newPlayers = new PlayersAPI({
             race: 'Half elf / Half Sea-Dweller',
             class: 'Mage',
             profession: 'Arcane-order',
-            stats: {},
+            stats: {
+                str: '', skill: '',
+                dex: '', char: '',
+                const: '', int: '',
+                wis: ''
+            },
             affiliation: 'Arcane order',
             dice: '',
             login: 'tylendel',
@@ -52,7 +62,12 @@ let newPlayers = new PlayersAPI({
             race: 'Elf',
             class: 'Hunter',
             profession: 'Scout, spy',
-            stats: {health: 'full', will: '100', int: '50', char: '50', wis: '50'},
+            stats: {
+                str: '', skill: '',
+                dex: '', char: '',
+                const: '', int: '',
+                wis: ''
+            },
             affiliation: 'None',
             dice: '',
             login: 'wolfbane',
