@@ -17,10 +17,10 @@ let newPlayers = new PlayersAPI({
             class: 'Fighter',
             profession: 'Thief, Politician',
             stats: {
-                str: '', skill: '',
-                dex: '', char: '',
-                const: '', int: '',
-                wis: ''
+                str: '8 + 1', skill: '6 + 1',
+                dex: '11 + 3', char: '8 + 3',
+                const: '11 + 2', int: '9',
+                wis: '8'
             },
             affiliation: 'Mayors cross map townsmanship aficionados club!',
             dice: '',
