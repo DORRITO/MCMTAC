@@ -40,10 +40,10 @@ let newPlayers = new PlayersAPI({
             class: 'Mage',
             profession: 'Arcane-order',
             stats: {
-                str: '', skill: '',
-                dex: '', char: '',
-                const: '', int: '',
-                wis: ''
+                str: '11', skill: '8 + 2',
+                dex: '11', char: '6 + 2',
+                const: '10', int: '9 + 3',
+                wis: '7 + 3'
             },
             affiliation: 'Arcane order',
             dice: '',
