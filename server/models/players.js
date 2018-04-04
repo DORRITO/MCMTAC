@@ -63,10 +63,10 @@ let newPlayers = new PlayersAPI({
             class: 'Hunter',
             profession: 'Scout, spy',
             stats: {
-                str: '', skill: '',
-                dex: '', char: '',
-                const: '', int: '',
-                wis: ''
+                str: '10 + 1', skill: '11 + 2',
+                dex: '9 + 3', char: '10 + 2',
+                const: '11', int: '7 + 1',
+                wis: '9 + 1'
             },
             affiliation: 'None',
             dice: '',
