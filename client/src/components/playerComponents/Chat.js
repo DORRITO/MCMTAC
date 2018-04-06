@@ -89,7 +89,7 @@ export default class Chat extends React.Component{
             {this.props.owner === this.props.user || this.props.user === 'Gm' ? <button className="Important" onClick={this.sendToGM.bind(this)}>Send to GM</button> : ''}
             {this.props.owner === this.props.user || this.props.user === 'Gm' ? <button onClick={this.clear.bind(this)}>Clear Chat</button> : ''}
           </form>
-          {this.props.owner === this.props.user ? <TextArea placeholder='Tell us more' style={{ minHeight: 50 }}><ul>{this.renderChatList()}</ul></TextArea> : ''}
+          {this.props.owner === this.props.user ? <ul>{this.renderChatList()}</ul> : ''}
         </div>
       )
   }/////////////////////////////////////////////////////////////////////////////
