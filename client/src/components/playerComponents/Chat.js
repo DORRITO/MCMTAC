@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import openSocket from 'socket.io-client';
+import { Form, TextArea } from 'semantic-ui-react';
 
 const env = process.env.NODE_ENV === 'production' ? 'https://mcmtac.herokuapp.com/' : 'localhost:3000/';
 const socket = openSocket(env);
@@ -88,7 +89,7 @@ export default class Chat extends React.Component{
             {this.props.owner === this.props.user || this.props.user === 'Gm' ? <button className="Important" onClick={this.sendToGM.bind(this)}>Send to GM</button> : ''}
             {this.props.owner === this.props.user || this.props.user === 'Gm' ? <button onClick={this.clear.bind(this)}>Clear Chat</button> : ''}
           </form>
-          {this.props.owner === this.props.user ? <ul>{this.renderChatList()}</ul> : ''}
+          {this.props.owner === this.props.user ? <TextArea placeholder='Tell us more' style={{ minHeight: 50 }}><ul>{this.renderChatList()}</ul></TextArea> : ''}
         </div>
       )
   }/////////////////////////////////////////////////////////////////////////////
