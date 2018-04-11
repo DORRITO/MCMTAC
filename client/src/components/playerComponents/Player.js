@@ -42,14 +42,15 @@ class Player extends React.Component{
     return (
       <div>
         <div>
-        <h2>{this.props.name}</h2>
-        <PlayerBoxIcon icon={this.props.icon}/>
+          <h2>{this.props.name}</h2>
+          <PlayerBoxIcon icon={this.props.icon}/>
         </div>
         <div className="divWithbackground">
             {this.props.name === this.state.knockedOut ? <h2>'INCAPACITATED'</h2> : <Dice owner={this.props.name}/>}
         </div> 
-        {this.props.user === 'Gm' ? <div><input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM</div> : ''}
+          {this.props.user === 'Gm' ? <div><input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM</div> : ''}
         <Chat owner={this.props.name} user={this.props.user}/>
+        <button style={{display: 'inline-block'}}>Info</button>
       </div>
     );
   }////////////////////////////////////////////////////////////////////////////
