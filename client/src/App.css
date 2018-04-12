@@ -41,6 +41,10 @@
   background-color: #65e69f;
 }
 
+.Inline-Title{
+  display: inline-block;
+}
+
 .To-Login{
   margin-top: 1rem;
   margin-bottom: 1rem;

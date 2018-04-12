@@ -42,7 +42,7 @@ class Player extends React.Component{
     return (
       <div>
         <div>
-          <h2>{this.props.name}</h2>
+          <h2 className="Inline-Title">{this.props.name}</h2><button className="Inline-Title">Info</button>
           <PlayerBoxIcon icon={this.props.icon}/>
         </div>
         <div className="divWithbackground">
@@ -50,7 +50,6 @@ class Player extends React.Component{
         </div> 
           {this.props.user === 'Gm' ? <div><input type="checkbox" onChange={this.onCheckboxChange.bind(this)}></input>FINISH HIM</div> : ''}
         <Chat owner={this.props.name} user={this.props.user}/>
-        <button style={{display: 'inline-block'}}>Info</button>
       </div>
     );
   }////////////////////////////////////////////////////////////////////////////
