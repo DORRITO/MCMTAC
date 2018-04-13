@@ -55,6 +55,10 @@ io.on('connection', (socket) => {
     io.emit('newMessage', generateMessage(message.from, message.text, message.to));
       callback('this is from the server');
   })
+
+  // socket.on('getInfo'), (name) => {
+  //   console.log('getting info!');
+  // }
   //******************************routes******************************
   //app.route for multiple get/post/ calls
   app.patch('/players', (req, res) => {
