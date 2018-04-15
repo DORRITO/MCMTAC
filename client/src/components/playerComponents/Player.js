@@ -50,7 +50,7 @@ class Player extends React.Component{
     return (
       <div>
         <div>
-          <h2 className="Inline-Title">{this.props.name}</h2><button className="Inline-Title">Info</button>
+          <h2 className="Inline-Title">{this.props.name}</h2><button className="Inline-Title" onClick={this.infoClick.bind()}>Info</button>
           <PlayerBoxIcon icon={this.props.icon}/>
         </div>
         <div className="divWithbackground">
