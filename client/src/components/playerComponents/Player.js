@@ -18,7 +18,8 @@ class Player extends React.Component{
     this.state = {
       isChecked: false,
       modifier: 0,
-      knockedOut: null
+      knockedOut: null,
+      weapon: ''
     };
   }//*****************
 
@@ -43,7 +44,9 @@ class Player extends React.Component{
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
 
-    console.log(body[this.props.user].inventory.weapon)
+    alert(this.state.weapon)
+    this.setState({ weapon: body[this.props.user].inventory.weapon });
+    alert(this.state.weapon)
     // return body;
   }//**********************************
 
