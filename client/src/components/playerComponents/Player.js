@@ -43,7 +43,7 @@ class Player extends React.Component{
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
 
-    console.log(body[this.props.user])
+    console.log(body[this.props.user].inventory.weapon)
     // return body;
   }//**********************************
 
