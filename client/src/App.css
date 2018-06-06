@@ -25,6 +25,7 @@
 }
 
 .App-Map{
+  display: flex;
   width: 50%;
   height: 25rem;
 }
