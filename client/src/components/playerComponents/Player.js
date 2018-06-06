@@ -46,7 +46,8 @@ class Player extends React.Component{
 
     this.setState({ info: body[this.props.user] });
     console.log(this.state.info)
-    alert(this.state.info)
+    //alert(this.state.info)//delete this later
+    alert('The AO prevents you from seeing this....because...it is in progress. Uh... Begone!')
     // return body;
   }//**********************************
 
