@@ -61,11 +61,14 @@ export default class Chat extends React.Component{
   ///////////////////////////chat///////////////////////////////////////
   send(e) {
     e.preventDefault();
-    socket.emit('createMessage', {
+    
+    if(e.target.value){
+      socket.emit('createMessage', {
         from: this.props.owner,
         text: this.state.text
-    }, function(){});
-    this.setState({text: ''});
+      }, function(){});
+      this.setState({text: ''});
+    }
   }
   //********************************
   sendToGM(e) {
