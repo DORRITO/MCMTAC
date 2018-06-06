@@ -61,8 +61,7 @@ export default class Chat extends React.Component{
   ///////////////////////////chat///////////////////////////////////////
   send(e) {
     e.preventDefault();
-    
-    if(e.target.value){
+    if(this.state.text){
       socket.emit('createMessage', {
         from: this.props.owner,
         text: this.state.text
@@ -73,12 +72,15 @@ export default class Chat extends React.Component{
   //********************************
   sendToGM(e) {
     e.preventDefault();
-    socket.emit('createGMMessage', {
+    
+    if(e.target.value){
+      socket.emit('createGMMessage', {
         from: this.props.owner,
         text: this.state.text,
         to: 'Gm'
-    }, function(){});
-    this.setState({text: ''});
+      }, function(){});
+      this.setState({text: ''});
+    }
   }
   ///////////////////////////////////////////////////////////////////////
 
