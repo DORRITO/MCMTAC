@@ -2,12 +2,8 @@
   text-align: center;
 }
 
-/* .App-logo { */
-  /* animation: App-logo-spin infinite 20s linear; */
-  /* height: 80px; */
-/* } */
-
 .App-header {
+  /* display: flex; */
   background-color: #65e69f;
   height: 9rem;
   padding: 20px;
@@ -15,6 +11,7 @@
 }
 
 .Header-gamepage{
+  /* display: flex; */
   background-color: #65e69f;
   color: brown;
 }
