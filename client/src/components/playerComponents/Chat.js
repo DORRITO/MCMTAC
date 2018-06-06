@@ -73,7 +73,7 @@ export default class Chat extends React.Component{
   sendToGM(e) {
     e.preventDefault();
     
-    if(e.target.value){
+    if(this.state.text){
       socket.emit('createGMMessage', {
         from: this.props.owner,
         text: this.state.text,
