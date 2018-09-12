@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {Button, Header, Image, Label, Modal} from 'semantic-ui-react';
 import '../App.css';
 import logo from './../images/cmtacSign.png';
-import map from './../images/map_colored.jpeg';
+import map from './../images/map_colored2.jpeg';
 
 class App extends Component {
 
