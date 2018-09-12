@@ -30,9 +30,7 @@ class App extends Component {
         <div><Modal dimmer closeIcon trigger={<Label color="blue" className="Pointer">The story so far...</Label>}>
           <Modal.Header>Last time on Terraforma!</Modal.Header>
           <Modal.Content>
-            Rychar, Tylendel, and the ever antagonistic  Wolfbane retrieved the water to save the town after rescuing the sand orca pup. 
-            <br />The Arcane order under the charge of Tylendel is still in control of the town, and is making safeguards around the well
-            <br />as Tylendel requested. Tylendel is exhausted from using his newfound abilities, but Rychar may have a surprise in store for him...
+            Rychar, Tylendel, and the ever antagonistic Wolfbane enjoyed a festival in honor of Tylendel! Ricayu didn’t like chile, Tylendel put his would be assassin in jail,  Wolfbane gained prestige in the eyes of the AO for protecting Tylendel, and in the eyes of the townspeople for winning the talent show!  What will those rascals do next?
           </Modal.Content>
         </Modal></div>
       </div>
